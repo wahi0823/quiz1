@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>QUIZ1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>難易度 ＊＊＊＊＊＊</h2>
+  <h1>２文字加えると短くなる単語は何か？</h1>
+  <form id="answerForm">
+    <input type="text" id="answerInput" placeholder="答えを入力" required>
+    <button type="submit">解答</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const correctAnswer = "short";  // ここに正解を設定
+
+    document.getElementById('answerForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // フォームの送信を防ぐ
+
+      const userAnswer = document.getElementById('answerInput').value.trim();
+      const resultDiv = document.getElementById('result');
+
+      if (userAnswer === correctAnswer) {
+        resultDiv.textContent = "正解！";
+        resultDiv.className = "correct";
+      } else {
+        resultDiv.textContent = "不正解...";
+        resultDiv.className = "incorrect";
+      }
+    });
+  </script>
+
+</body>
+</html>
